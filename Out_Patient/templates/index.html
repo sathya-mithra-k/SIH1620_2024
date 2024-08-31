@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Queue Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Hospital Queue Management</h1>
+
+        <div class="form-group">
+            <label for="tot_doctors">Total Number of Doctors:</label>
+            <input type="number" id="tot_doctors" min="1" required>
+            <button id="init_btn">Initialize</button>
+        </div>
+
+        <div class="form-group">
+            <label for="patient_name">Patient Name:</label>
+            <input type="text" id="patient_name" required>
+        </div>
+
+        <div class="form-group">
+            <input type="checkbox" id="is_emergency"> Emergency Case
+        </div>
+
+        <button id="add_patient_btn">Add Patient</button>
+
+        <div class="form-group">
+            <label for="doctor_name">Doctor Name:</label>
+            <input type="text" id="doctor_name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="patient_token">Patient Token:</label>
+            <input type="number" id="patient_token" required>
+        </div>
+
+        <button id="complete_visit_btn">Complete Visit</button>
+
+        <div class="display-section">
+            <h2>Current Assignments and Queue Status</h2>
+            <div class="doctor-patients">
+                <h3>Doctor-Patient Assignments:</h3>
+                <div id="doctor_assignments"></div>
+            </div>
+            <div class="queue-list">
+                <h3>Regular Queue:</h3>
+                <div id="regular_queue"></div>
+                <h3>Emergency Queue:</h3>
+                <div id="emergency_queue"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

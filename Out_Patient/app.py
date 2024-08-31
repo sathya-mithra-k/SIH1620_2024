@@ -1,10 +1,10 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 import heapq
 from collections import deque
 
 app = Flask(__name__)
 
-
+# Global variables for managing doctors and queues
 docs = []
 doc_patients = {}
 normal_queue = deque()
@@ -62,6 +62,10 @@ def get_display():
         "Waiting in Regular Queue": waiting_normal,
         "Waiting in Emergency Queue": waiting_emergency
     }
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/init', methods=['POST'])
 def init():
