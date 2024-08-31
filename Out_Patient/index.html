@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Queue Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label, button {
+            display: block;
+            margin: 10px 0;
+            padding: 8px;
+            font-size: 16px;
+        }
+        input[type="text"], input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 8px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            margin-top: 20px;
+        }
+        .output p {
+            margin: 5px 0;
+        }
+        .assignments {
+            margin-top: 20px;
+        }
+        .assignments h2 {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hospital Queue Management System</h1>
+
+        <!-- Initialize Doctors -->
+        <h2>Initialize Doctors</h2>
+        <label for="totalDoctors">Enter number of doctors:</label>
+        <input type="number" id="totalDoctors" min="1">
+        <button onclick="initDoctors()">Initialize</button>
+
+        <!-- Add Patient -->
+        <h2>Add Patient</h2>
+        <label for="patientName">Patient Name:</label>
+        <input type="text" id="patientName">
+        
+        <label for="isEmergency">Is Emergency:</label>
+        <input type="checkbox" id="isEmergency">
+        <button onclick="addPatient()">Add Patient</button>
+
+        <!-- Complete Visit -->
+        <h2>Complete Patient Visit</h2>
+        <label for="doctorName">Doctor Name:</label>
+        <input type="text" id="doctorName">
+        
+        <label for="patientToken">Patient Token:</label>
+        <input type="number" id="patientToken" min="1">
+        <button onclick="completeVisit()">Complete Visit</button>
+
+        <!-- Display Assignments -->
+        <div class="output">
+            <h2>Doctor-Patient Assignments</h2>
+            <div id="assignments"></div>
+        </div>
+    </div>
+
+    <script>
+        // Function to initialize doctors
+        function initDoctors() {
+            const totalDoctors = document.getElementById('totalDoctors').value;
+            fetch('/init', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ tot_doctors: totalDoctors }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                displayAssignments(); // Update display after initialization
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // Function to add a patient
+        function addPatient() {
+            const patientName = document.getElementById('patientName').value;
+            const isEmergency = document.getElementById('isEmergency').checked;
+            fetch('/add_patient', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ patient_name: patientName, is_emergency: isEmergency }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                displayAssignments(); // Update display after adding a patient
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // Function to complete a patient's visit
+        function completeVisit() {
+            const doctorName = document.getElementById('doctorName').value;
+            const patientToken = document.getElementById('patientToken').value;
+            fetch('/complete', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ doctor: doctorName, token: patientToken }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                displayAssignments(); // Update display after completing a visit
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // Function to display doctor-patient assignments
+        function displayAssignments() {
+            fetch('/display')
+            .then(response => response.json())
+            .then(data => {
+                const assignmentsDiv = document.getElementById('assignments');
+                let html = "<h3>Doctor-Patient Assignments:</h3><ul>";
+                
+                for (const [doctor, patients] of Object.entries(data["Doctor-Patient Assignments"])) {
+                    html += `<li><strong>${doctor}:</strong> ${patients.length ? patients.join(', ') : 'No patients'}</li>`;
+                }
+                html += "</ul>";
+                
+                html += "<h3>Waiting in Regular Queue:</h3><p>" + (data["Waiting in Regular Queue"].length ? data["Waiting in Regular Queue"].join(', ') : 'No patients') + "</p>";
+                html += "<h3>Waiting in Emergency Queue:</h3><p>" + (data["Waiting in Emergency Queue"].length ? data["Waiting in Emergency Queue"].join(', ') : 'No patients') + "</p>";
+                
+                assignmentsDiv.innerHTML = html;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
