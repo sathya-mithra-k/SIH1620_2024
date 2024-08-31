@@ -1,0 +1,236 @@
+/* STYLING FOR THE TEMPLATE PAGE  */
+
+.parent{
+
+border: 0px solid black;
+display: grid;
+grid-template-columns: 1fr 2fr 1fr ;
+grid-template-rows: auto auto auto auto auto auto auto;
+grid-gap: 4px;
+
+
+}
+
+.child{
+    /* background-color: aquamarine; */
+    padding: 4px;
+    /* border: 1px solid red; For debugging */
+}
+
+.child1{grid-column: 1/4;grid-row: 1/2;}
+.child2{grid-column: 1/4;grid-row: 2/3;}
+.child3{grid-column: 1/2;grid-row: 3/4;}
+.child4{grid-column: 2/3;grid-row: 3/4;}
+.child5{grid-column: 3/4;grid-row: 3/4;}
+.child6{grid-column: 1/4;grid-row: 4/5;}
+.child7{grid-column: 1/4;grid-row: 5/6;}
+
+
+@media screen and (max-width: 600px) {
+    .parent {
+        border: 4px solid black;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(7, auto); /* Automatically adjusts rows */
+        grid-gap: 8px;
+    }
+
+    .child2 {grid-column:1 ; grid-row: 2; }
+    .child1 {grid-column:1 ; grid-row: 1; }
+    .child3 {grid-column:1 ; grid-row: 3; }
+    .child4 {grid-column:1 ; grid-row: 4; }
+    .child5 {grid-column:1 ; grid-row: 5; }
+    .child6 {grid-column:1 ; grid-row: 6; }
+    .child7 {grid-column:1 ; grid-row: 7; }
+
+    #footer, #links {
+        position: relative; /* Make them part of the normal document flow */
+        bottom: auto;
+        margin-top: 4px; /* Add space between them */
+        width: 100%;
+    }
+
+    #main_content{
+        flex: 1;
+        overflow: scroll;
+       
+    }
+}
+
+
+#navbar{
+top: 0;
+position: fixed;
+z-index: 1000;
+
+}
+
+#header{
+
+    text-align: center;
+    padding: 22;
+    margin-top: 48px ;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+#main_content{
+    
+    
+    margin-bottom: 8px;
+}
+
+#links{
+    bottom: auto;
+    position:relative;
+    justify-content: center;
+    margin-bottom: 4px;
+    width: 100%;
+    padding: 4px;
+    margin-top: 4px;
+ 
+}
+
+#footer{
+    bottom: auto;
+    position:relative;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0px;
+   
+    margin-top: 4px;
+}
+
+
+ /* STYLING FOR THE REGISTER PAGE  */
+
+/* Signup Form Container */
+.signup-container {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0e8e0;
+    
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 480px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 69vh;
+    
+}
+
+/* Hover Effect for Container */
+.signup-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Title */
+.signup-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #5a5a5a;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #5a5a5a;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0d5c7;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #333;
+    background-color: #fdfdfd;
+    transition: border-color 0.3s ease;
+}
+
+/* Input Focus State */
+.form-group input:focus {
+    border-color: #8b76a7;
+    outline: none;
+}
+
+
+/* Submit Button */
+.btn-primary {
+    width: 100%;
+    padding: 15px;
+    background-color: #8b76a7;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Submit Button Hover Effect */
+.btn-primary:hover {
+    background-color: #70598e;
+}
+
+/* Link to Login */
+.signup-container p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #8b76a7;
+}
+
+.signup-container p a {
+    color: #8b76a7;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.signup-container p a:hover {
+    color: #70598e;
+}
+
+
+ /* style for the buttons */
+
+
+ 
+.nav-link-1{
+    display: inline-block;
+    padding: 7px 14px; /* Adjust padding as needed */
+    color: white;
+    background-color: #007BFF; /* Button background color */
+    text-align: center;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease ; /* Smooth transition */
+    margin: 7px;
+  }
+  
+  .nav-link-1:hover{
+    background-color: #0056b3;
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.0);
+  }
+  .nav-link-1:focus , .nav-link-1:active{
+    outline: none;
+  }

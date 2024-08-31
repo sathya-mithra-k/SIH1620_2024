@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+
+{% block header_main %} 
+
+Register !
+
+{% endblock header_main %}
+
+{% block center_main %}
+
+<div class="signup-container">
+    <h2>Create_Account</h2>
+    <form action="{{ url_for('register') }}" method="POST">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" name="email"
+          required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password"
+          name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" class="form-control" id="confirm-password"
+          name="confirm-password" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+    <p>Already have an account? <a href="{{url_for('login')}}">login</a></p>
+  </div>
+
+  <script>
+  function validatePassword() {
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
+
+    if (password!== confirmPassword) {
+      alert("Passwords do not match!");
+      return false;
+    }
+    return true;
+  }
+</script>
+
+{% endblock center_main %}
