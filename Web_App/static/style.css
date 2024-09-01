@@ -7,6 +7,7 @@ display: grid;
 grid-template-columns: 1fr 2fr 1fr ;
 grid-template-rows: auto auto auto auto auto auto auto;
 grid-gap: 4px;
+font-family: 'Poppins', sans-serif;
 
 
 }
@@ -24,6 +25,23 @@ grid-gap: 4px;
 .child5{grid-column: 3/4;grid-row: 3/4;}
 .child6{grid-column: 1/4;grid-row: 4/5;}
 .child7{grid-column: 1/4;grid-row: 5/6;}
+
+
+.child4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust as needed */
+    grid-gap: 10px; /* Adjust spacing between items */
+    height: 100vh; /* Make the grid container fill the viewport height */
+    width: auto; /* Make the grid container fill the viewport width */
+    justify-content: center;
+  }
+  
+  .child4 {
+    background-color: white; /* Background color for visibility */
+    padding: 20px; /* Padding inside each grid item */
+    border: 1px solid #ddd; /* Border for visibility */
+    text-align: center; /* Center text inside items */
+  }
 
 
 @media screen and (max-width: 600px) {
@@ -70,8 +88,8 @@ z-index: 1000;
     text-align: center;
     padding: 22;
     margin-top: 48px ;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 
@@ -86,9 +104,12 @@ z-index: 1000;
     position:relative;
     justify-content: center;
     margin-bottom: 4px;
-    width: 100%;
+    width: auto;
     padding: 4px;
     margin-top: 4px;
+    text-align: center;
+    margin-left: 40px;
+    margin-right: 40px ;
  
 }
 
@@ -98,9 +119,11 @@ z-index: 1000;
     text-align: center;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: auto;
     padding: 0px;
-   
+    text-align: center;
+    margin-left: 40px;
+    margin-right: 40px ;
     margin-top: 4px;
 }
 
@@ -110,7 +133,7 @@ z-index: 1000;
 /* Signup Form Container */
 .signup-container {
     font-family: 'Poppins', sans-serif;
-    background-color: #f0e8e0;
+    background-color: whitesmoke;
     
     justify-content: center;
     align-items: center;
@@ -121,10 +144,13 @@ z-index: 1000;
     max-width: 480px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 69vh;
+    margin: auto;
     
 }
 
-/* Hover Effect for Container */
+/* hover{
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);} Effect for Container */
 .signup-container:hover {
     transform: translateY(-5px);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
@@ -243,20 +269,23 @@ z-index: 1000;
 
 /* Login Container */
 .login-container {
-    background-color: #fff;
-    padding: 20px 40px;
+    background-color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+    margin: auto;
+    padding: 40px ;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     text-align: center;
     max-width: 400px;
     width: 100%;
     max-height: 600px;
-    margin-top: 40px;
+    /* margin-top: 40px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 50vh; 
+    min-height: 64vh; 
+    
     
 }
 
@@ -268,8 +297,9 @@ z-index: 1000;
 }
 
 .login-container:hover{
-transform: translateY(-5px);
-box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    
 }
 
 /* Input Group */
@@ -310,4 +340,294 @@ button {
 
 button:hover {
     background-color: #4cae4c;
+}
+
+
+/* Styles for the card buttons in the dashboarbutton-dashboadr
+/* General button styles */
+.button-dash_board {
+    background-color: whitesmoke !important; /* Pink background color */
+    color: white; /* White text color */
+    border: none;
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px 30px; /* Padding inside the button */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem; /* Font size */
+    display: flex;
+    align-items:first baseline;
+    justify-content: space-between; /* Space between icon and text */
+    width: 100%; /* Full width button */
+
+}
+
+/* Optional: Adjust icon or any additional elements within the button */
+.button-dash__board .icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+/* Adjust the button text styling */
+.button-dash_board h4 {
+    margin: 0;
+    font-size: 1.5rem; /* Larger font for main text */
+    font-weight: bold;
+}
+
+.button-dash_board span {
+    font-size: 0.9rem; /* Smaller font for secondary text */
+    display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .button-dash_board {
+        flex-direction: column; /* Stack content vertically on smaller screens */
+        text-align: center;
+    }
+
+    .button-dash_board .icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+#btn-1{
+    background-color: #E3655B !important; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#btn-2 {
+    background-color: #5B8C5A !important;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#btn-3 {
+    background-color: #CFD186 !important;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#btn-4 {
+    background-color: #596157 !important;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#btn-1:hover{
+        transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+#btn-2:hover{
+        transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+#btn-3:hover{
+        transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+#btn-4:hover{
+        transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* # FOR FLASH MESSAGE */
+
+.flash-messages {
+    position: fixed;
+    bottom: 10px;
+    right: 10px; /* Position it at the bottom right */
+    background-color: red; /* Red background for error */
+    color: white; /* White text color for contrast */
+    padding: 0px;
+    border-radius: 5px;
+    z-index: 1000; /* Ensure it appears above other content */
+    width: 20%;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between the message and button */
+}
+
+.flash-messages > div {
+    margin-bottom: 10px; /* Adds space between messages */
+}
+
+.error {
+    background-color: red; /* Red background for error */
+    color: white; /* White text color for contrast */
+}
+
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px; /* Smaller font size */
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    line-height: 1; /* Adjust the button height */
+    width: 10%;
+    z-index: 1000;
+}
+
+.close-btn:hover {
+    color: lightgray;
+}
+
+
+
+/* # STYLE FOR THE OUT_PATIENT PAGE */
+/* Container Styling */
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add a subtle hover effect
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+} */
+
+/* Heading Styling */
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Label Styling */
+label {
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+    margin: 12px;
+}
+
+/* Input Styling */
+input[type="text"], input[type="number"] {
+    width: 70%;
+    padding: 12px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    margin: 12px;
+    position:relative;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Add focus effect */
+input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #5cb85c;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(92, 184, 92, 0.5);
+}
+
+/* Checkbox Styling */
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Button Styling */
+button {
+    padding: 12px 25px;
+    border: none;
+    background-color: #5cb85c;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: auto;
+}
+
+/* Add hover effect */
+button:hover {
+    background-color: #4cae4c;
+    transform: translateY(-2px);
+}
+
+/* Add active button effect */
+button:active {
+    transform: translateY(0);
+    background-color: #449d44;
+}
+
+/* Display Section Styling */
+.display-section {
+    margin-top: 40px;
+    padding: 25px;
+    background-color: #f9f9f9; /* Slightly lighter background */
+    border-radius: 12px; /* Softer border radius */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for more depth */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect to make the section pop */
+.display-section:hover {
+    background-color: #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Heading inside Display Section */
+.display-section h2 {
+    text-align: center;
+    color: #444; /* Slightly darker text for better contrast */
+    font-size: 1.75em; /* Larger font size for emphasis */
+    margin-bottom: 25px;
+}
+
+/* Doctor-Patients and Queue List Styling */
+.doctor-patients div, .queue-list div {
+    margin-bottom: 15px;
+    padding: 15px; /* Increased padding for more space */
+    background-color: #fff;
+    border-radius: 8px; /* Softer border radius */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Add transform for better hover effect */
+}
+
+/* Add hover effect to the items */
+.doctor-patients div:hover, .queue-list div:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+    transform: translateY(-3px); /* Slight lift on hover */
+}
+
+/* Improve readability of text */
+.doctor-patients div, .queue-list div {
+    font-size: 1.1em; /* Slightly larger text */
+    color: #333; /* Darker text for better contrast */
+    line-height: 1.5; /* Improve readability */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .display-section {
+        padding: 20px;
+    }
+    .doctor-patients div, .queue-list div {
+        font-size: 1em; /* Adjust font size for smaller screens */
+    }
 }

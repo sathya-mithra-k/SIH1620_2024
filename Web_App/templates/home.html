@@ -7,6 +7,21 @@ Welcome Home !
 
 {% endblock header_main %}
 
+
+{% block flash_messages %}
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="{{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+
 {% block center_main %}
 
 <h4> This is the home page  </h4>

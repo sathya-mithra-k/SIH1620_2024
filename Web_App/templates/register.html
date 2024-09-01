@@ -7,7 +7,27 @@ Register !
 
 {% endblock header_main %}
 
+{% block flash_messages %}
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="{{ category }}">
+                      {{ message }}
+                      <button class="close-btn" onclick="this.parentElement.style.display='none'">&times;</button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+{% endblock %}
+
+
+
 {% block center_main %}
+
+
 
 <div class="signup-container">
     <h2>Create_Account</h2>
