@@ -9,7 +9,7 @@ import MySQLdb.cursors
 from MySQLdb import IntegrityError
 
 # Importing  the queue python file 
-from Web_App import patient_queuing_ 
+from queue_module_ import *
 
 
 app = Flask(__name__)
@@ -122,11 +122,11 @@ def dashboard():
 def out_patient():
     return render_template('out_patient.html')
 
-@app.route("/init", methods=["POST"])
-def init():
-    tot_doctors = request.form['tot_doctors']
-    patient_queuing_.num_doc(int(tot_doctors))
-    return ({"message": f"Initialized Doctors: {docs} " })
+# @app.route("/init", methods=["POST"])
+# def init():
+#     tot_doctors = request.form['tot_doctors']
+#     patient_queuing_.num_doc(int(tot_doctors))
+#     return ({"message": f"Initialized Doctors: {docs} " })
 
 
 
