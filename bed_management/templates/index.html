@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bed Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Bed Management System</h1>
+    <h2>Available Beds</h2>
+    <ul>
+        {% for bed in beds %}
+            <li>
+                Bed ID: {{ bed.id }} | Block: {{ bed.block }} | Floor: {{ bed.floor }} | Status: {{ bed.status }}
+                {% if bed.status == 'occupied' %}
+                    | Patient: {{ bed.patient }}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Allocate a Bed</h2>
+    <form id="allocation-form">
+        <label for="patient_name">Patient Name:</label>
+        <input type="text" id="patient_name" name="patient_name" required>
+        <button type="submit">Allocate Bed</button>
+    </form>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
